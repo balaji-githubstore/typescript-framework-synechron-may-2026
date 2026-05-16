@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 
-test.describe("OrangeHRM Login", () => {
+test.describe("orangeHRM login UI tests", () => {
 
     test('verify title', async ({ page }) => {
         await page.goto('/');
