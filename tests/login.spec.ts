@@ -1,4 +1,5 @@
 import { test, expect } from "../fixtures/base-test.js"
+import { LoginPage } from "../pages/LoginPage.js";
 
 test.describe("orangeHRM login tests", () => {
 
