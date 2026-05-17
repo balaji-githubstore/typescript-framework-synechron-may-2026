@@ -1,11 +1,11 @@
 import { test, expect, type Page } from "../fixtures/base-test.js"
+import { PlaywrightKeywords } from "./basepage/PlaywrightKeywords.js";
 
 const DASHBOARD_LOCATOR = "xpath=//h6[contains(normalize-space(),'Dash')]"
-export class DashboardPage {
-    private readonly page: Page;
+export class DashboardPage extends PlaywrightKeywords{
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
     }
 
     public async validateDashboardHeader(expectedHeader: string): Promise<void> {
