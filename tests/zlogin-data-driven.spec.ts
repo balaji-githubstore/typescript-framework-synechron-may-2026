@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/base-test.js"
+import { test } from "../fixtures/base-test.js"
 import { DashboardPage } from "../pages/DashboardPage.js";
 import { LoginPage } from "../pages/LoginPage.js";
 import { invalidLoginData } from "../utils/data-source.js"
