@@ -3,17 +3,17 @@ import { expect, type Page } from "../fixtures/base-test.js"
 class LoginPage {
 
     private readonly page: Page;
-
     constructor(page: Page) {
         this.page = page;
     }
 
     public async fillUsername(username: string): Promise<void> {
+        
         await this.page.locator("xpath=//input[@name='username']").fill(username);
     }
 
     public async fillPassword(password: string): Promise<void> {
-        await this.page.locator("xpath=//input[@name='password']").fill("admin123");
+        await this.page.locator("xpath=//input[@name='password']").fill(password);
     }
 
     public async clickOnLogin(): Promise<void> {
