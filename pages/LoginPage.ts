@@ -23,6 +23,22 @@ class LoginPage {
     public async validateInvalidErrorMessage(expectedText: string): Promise<void> {
         await expect(this.page.locator("//p[contains(normalize-space(),'Invalid')]")).toHaveText(expectedText);
     }
+
+    public async validateLoginTitle(expectedTitle: string): Promise<void> {
+        await expect(this.page).toHaveTitle(expectedTitle);
+    }
+
+    public async validateLoginHeader(expectedHeader: string): Promise<void> {
+        await expect(this.page.locator("xpath=//h5[text()='Login']")).toHaveText(expectedHeader)
+    }
+
+    public async validateUsernamePlaceholder(expectedUsenamePlaceholder: string): Promise<void> {
+        await expect(this.page.locator("xpath=//input[@name='username']")).toHaveAttribute("placeholder", expectedUsenamePlaceholder)
+    }
+
+    public async validatePlaceholderPlaceholder(expectedPasswordPlaceholder: string): Promise<void> {
+        await expect(this.page.locator("xpath=//input[@name='username']")).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
+    }
 }
 
 export { LoginPage }
