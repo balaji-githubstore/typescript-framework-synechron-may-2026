@@ -1,5 +1,11 @@
 import { expect, type Page } from "../fixtures/base-test.js"
 
+const USERNAME_LOCATOR = "xpath=//input[@name='username']"
+const PASSWORD_LOCATOR = "xpath=//input[@name='password']"
+const LOGIN_LOCATOR = "xpath=//button[normalize-space()='Login']"
+const ERROR_LOCATOR = "xpath=//p[contains(normalize-space(),'Invalid')]"
+const LOGIN_HEADER = "xpath=//h5[text()='Login']"
+
 class LoginPage {
 
     private readonly page: Page;
@@ -8,20 +14,19 @@ class LoginPage {
     }
 
     public async fillUsername(username: string): Promise<void> {
-        
-        await this.page.locator("xpath=//input[@name='username']").fill(username);
+        await this.page.locator(USERNAME_LOCATOR).fill(username);
     }
 
     public async fillPassword(password: string): Promise<void> {
-        await this.page.locator("xpath=//input[@name='password']").fill(password);
+        await this.page.locator(PASSWORD_LOCATOR).fill(password);
     }
 
     public async clickOnLogin(): Promise<void> {
-        await this.page.locator("xpath=//button[normalize-space()='Login']").click();
+        await this.page.locator(LOGIN_LOCATOR).click();
     }
 
     public async validateInvalidErrorMessage(expectedText: string): Promise<void> {
-        await expect(this.page.locator("//p[contains(normalize-space(),'Invalid')]")).toHaveText(expectedText);
+        await expect(this.page.locator(ERROR_LOCATOR)).toHaveText(expectedText);
     }
 
     public async validateLoginTitle(expectedTitle: string): Promise<void> {
@@ -29,15 +34,15 @@ class LoginPage {
     }
 
     public async validateLoginHeader(expectedHeader: string): Promise<void> {
-        await expect(this.page.locator("xpath=//h5[text()='Login']")).toHaveText(expectedHeader)
+        await expect(this.page.locator(LOGIN_HEADER)).toHaveText(expectedHeader)
     }
 
     public async validateUsernamePlaceholder(expectedUsenamePlaceholder: string): Promise<void> {
-        await expect(this.page.locator("xpath=//input[@name='username']")).toHaveAttribute("placeholder", expectedUsenamePlaceholder)
+        await expect(this.page.locator(USERNAME_LOCATOR)).toHaveAttribute("placeholder", expectedUsenamePlaceholder)
     }
 
     public async validatePlaceholderPlaceholder(expectedPasswordPlaceholder: string): Promise<void> {
-        await expect(this.page.locator("xpath=//input[@name='username']")).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
+        await expect(this.page.locator(PASSWORD_LOCATOR)).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
     }
 }
 
