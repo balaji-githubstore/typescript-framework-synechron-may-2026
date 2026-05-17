@@ -1,12 +1,12 @@
 {
     "invalidLoginData": [
         {
-            "username": "john",
+            "username": "kim",
             "password": "john123",
             "expectedError": "Invalid credentials"
         },
         {
-            "username": "saul",
+            "username": "ken",
             "password": "saul123",
             "expectedError": "Invalid credentials"
         }

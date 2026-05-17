@@ -3,7 +3,7 @@ import fs from "fs";
 const JSON_FILE = "test-data/data.json"
 
 export class JsonUtils {
-    static getJson(key?: string): any {
+    public static getJson(key?: string): any {
         const data = JSON.parse(fs.readFileSync(JSON_FILE, "utf-8"))
         if (key === undefined) {
             return data;
