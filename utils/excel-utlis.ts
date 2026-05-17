@@ -1,6 +1,5 @@
 import XLSX from "xlsx"
-
-const EXCEL_FILE = "test-data/hrm-data.xlsx"
+import { EXCEL_FILE } from "../config.js"
 
 export class ExcelUtils {
     public static readExcel(sheetname: string): any {

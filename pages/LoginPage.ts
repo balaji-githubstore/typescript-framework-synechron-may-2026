@@ -8,6 +8,7 @@ const PASSWORD_LOCATOR = "xpath=//input[@name='password']"
 const LOGIN_LOCATOR = "xpath=//button[normalize-space()='Login']"
 const ERROR_LOCATOR = "xpath=//p[contains(normalize-space(),'Invalid')]"
 const LOGIN_HEADER = "xpath=//h5[text()='Login']"
+// const USERNAME_ROLE_NAME_LOCATOR= "username"
 
 export class LoginPage extends PlaywrightKeywords {
 
@@ -18,6 +19,7 @@ export class LoginPage extends PlaywrightKeywords {
     public async fillUsername(username: string): Promise<void> {
         // await this.page.locator(USERNAME_LOCATOR).fill(username);
         await this.sendTextToElement(USERNAME_LOCATOR,username);
+        // await this.sendTextToElementByRole(USERNAME_ROLE_NAME_LOCATOR,username);
     }
 
     public async fillPassword(password: string): Promise<void> {

@@ -1,6 +1,5 @@
 import fs from "fs";
-
-const JSON_FILE = "test-data/data.json"
+import { JSON_FILE } from "../config.js"
 
 export class JsonUtils {
     public static getJson(key?: string): any {
@@ -9,5 +8,5 @@ export class JsonUtils {
             return data;
         }
         return data[key]
-    }   
+    }
 }

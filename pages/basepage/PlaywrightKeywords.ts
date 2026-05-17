@@ -26,5 +26,8 @@ export class PlaywrightKeywords {
         await expect(this.page.locator(locator)).toHaveAttribute(attributeName, attributeValue)
     }
 
-
+    //works on textbox, password, textarea 
+     public async sendTextToElementByRole(roleName: string, text: string): Promise<void> {
+        await this.page.getByRole('textbox', { name: roleName }).click();
+    }
 }
