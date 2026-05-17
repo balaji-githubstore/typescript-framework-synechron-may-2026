@@ -9,6 +9,7 @@ export class DashboardPage extends PlaywrightKeywords{
     }
 
     public async validateDashboardHeader(expectedHeader: string): Promise<void> {
-        await expect(this.page.locator(DASHBOARD_LOCATOR)).toHaveText(expectedHeader);
+        // await expect(this.page.locator(DASHBOARD_LOCATOR)).toHaveText(expectedHeader);
+        await this.validateExactInnerText(DASHBOARD_LOCATOR,expectedHeader);
     }
 }

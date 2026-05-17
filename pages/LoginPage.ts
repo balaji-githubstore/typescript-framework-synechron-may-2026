@@ -31,22 +31,27 @@ export class LoginPage extends PlaywrightKeywords {
     }
 
     public async validateInvalidErrorMessage(expectedText: string): Promise<void> {
-        await expect(this.page.locator(ERROR_LOCATOR)).toHaveText(expectedText);
+        // await expect(this.page.locator(ERROR_LOCATOR)).toHaveText(expectedText);
+        await this.validateExactInnerText(ERROR_LOCATOR,expectedText);
     }
 
     public async validateLoginTitle(expectedTitle: string): Promise<void> {
-        await expect(this.page).toHaveTitle(expectedTitle);
+        // await expect(this.page).toHaveTitle(expectedTitle);
+        await this.validateTitle(expectedTitle);
     }
 
     public async validateLoginHeader(expectedHeader: string): Promise<void> {
-        await expect(this.page.locator(LOGIN_HEADER)).toHaveText(expectedHeader)
+        // await expect(this.page.locator(LOGIN_HEADER)).toHaveText(expectedHeader)
+        await this.validateExactInnerText(LOGIN_HEADER,expectedHeader);
     }
 
     public async validateUsernamePlaceholder(expectedUsenamePlaceholder: string): Promise<void> {
-        await expect(this.page.locator(USERNAME_LOCATOR)).toHaveAttribute("placeholder", expectedUsenamePlaceholder)
+        // await expect(this.page.locator(USERNAME_LOCATOR)).toHaveAttribute("placeholder", expectedUsenamePlaceholder)
+        await this.validateAttribueValue(USERNAME_LOCATOR,"placeholder",expectedUsenamePlaceholder);
     }
 
     public async validatePlaceholderPlaceholder(expectedPasswordPlaceholder: string): Promise<void> {
-        await expect(this.page.locator(PASSWORD_LOCATOR)).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
+        // await expect(this.page.locator(PASSWORD_LOCATOR)).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
+        await this.validateAttribueValue(PASSWORD_LOCATOR,"placeholder",expectedPasswordPlaceholder);
     }
 }

@@ -7,19 +7,19 @@ test.describe("orangeHRM login tests", () => {
 
     test('verify valid login', async ({ page }) => {
         const loginPage = new LoginPage(page);
-        loginPage.fillUsername("Admin");
-        loginPage.fillPassword("admin123");
-        loginPage.clickOnLogin();
+        await loginPage.fillUsername("Admin");
+        await loginPage.fillPassword("admin123");
+        await loginPage.clickOnLogin();
 
         const dashboardPage = new DashboardPage(page);
-        dashboardPage.validateDashboardHeader("Dashboard");
+        await dashboardPage.validateDashboardHeader("Dashboard");
     });
 
     test('verify invalid login', async ({ page }) => {
         const loginPage = new LoginPage(page);
-        loginPage.fillUsername("john");
-        loginPage.fillPassword("john123");
-        loginPage.clickOnLogin();
-        loginPage.validateInvalidErrorMessage("Invalid credentials");
+        await loginPage.fillUsername("john");
+        await loginPage.fillPassword("john123");
+        await loginPage.clickOnLogin();
+        await loginPage.validateInvalidErrorMessage("Invalid credentials");
     });
 })
