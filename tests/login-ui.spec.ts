@@ -14,4 +14,10 @@ test.describe("orangeHRM login UI tests", () => {
         await expect(page.locator("xpath=//input[@name='username']")).toHaveAttribute("placeholder", "Username")
         await expect(page.locator("xpath=//input[@name='password']")).toHaveAttribute("placeholder", "Password")
     });
+
+     
+    test('verify application version', async ({ page }) => {
+        await expect(page).toHaveTitle("OrangeHRM");
+    });
+
 })
