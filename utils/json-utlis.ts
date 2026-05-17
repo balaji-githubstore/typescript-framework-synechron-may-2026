@@ -9,5 +9,5 @@ export class JsonUtils {
             return data;
         }
         return data[key]
-    }
+    }   
 }
