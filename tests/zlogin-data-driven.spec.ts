@@ -24,5 +24,4 @@ test.describe("orangeHRM login tests", () => {
             await loginPage.validateInvalidErrorMessage(expectedError);
         });
     }
-
 })
