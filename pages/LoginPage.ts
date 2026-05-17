@@ -6,7 +6,7 @@ const LOGIN_LOCATOR = "xpath=//button[normalize-space()='Login']"
 const ERROR_LOCATOR = "xpath=//p[contains(normalize-space(),'Invalid')]"
 const LOGIN_HEADER = "xpath=//h5[text()='Login']"
 
-class LoginPage {
+export class LoginPage {
 
     private readonly page: Page;
     constructor(page: Page) {
@@ -45,5 +45,3 @@ class LoginPage {
         await expect(this.page.locator(PASSWORD_LOCATOR)).toHaveAttribute("placeholder", expectedPasswordPlaceholder)
     }
 }
-
-export { LoginPage }
